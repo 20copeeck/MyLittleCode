@@ -31,3 +31,5 @@
 *.out
 *.app
 ProgrammingPractics/Debug/
+.vs/
+ProgrammingPractics/x64/
