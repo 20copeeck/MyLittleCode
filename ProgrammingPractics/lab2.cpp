@@ -3,6 +3,13 @@
 
 using namespace std;
 
+int globalVariable = 7;
+
+void PrintHelloWorld()
+{
+	cout << "Hello, World!\n";
+}
+
 int ÑheckingÑorrectness()
 {
 	int value;
@@ -11,17 +18,12 @@ int ÑheckingÑorrectness()
 	{
 		cin >> value;
 		if (!(good = cin.good()))
-			cout << "Îøèáêà!!!" << "\n" << "ÂÂÅÄÈÒÅ ÖÅËÎÅ ×ÈÑËÎ: " << endl;
+			cout << "Îøèáêà!!!" << "\n" << "ÂÂÅÄÈÒÅ ÖÅËÎÅ ×ÈÑËÎ: ";
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	} while (!good);
 
 	return value;
-}
-
-void PrintHelloWorld()
-{
-	cout << "Hello, World!\n";
 }
 
 double MakeCalculation(int value1, int value2, char operationKey)
@@ -48,6 +50,119 @@ double MakeCalculation(int value1, int value2, char operationKey)
 	}
 }
 
+int Divide(int dividend, int divisor)
+{
+	int result;
+	result = dividend / divisor;
+	return result;
+}
+
+int GetRootsPointers(int a, int b, int c, double* x1, double* x2)
+{
+	double discriminant;
+	
+	if ((a == 0) & (b == 0))
+	{
+		return 0;
+	}
+	else if (a == 0)
+	{
+		*x1 = -c / b;
+		return 1;
+	}
+	else
+	{
+		discriminant = b * b - 4 * a * c;
+
+		if (discriminant < 0)
+		{
+			return 0;
+		}
+		else if (discriminant == 0)
+		{
+			*x1 = (-b + sqrt(discriminant)) / (2 * a);
+			return 1;
+		}
+		else
+		{
+			*x1 = (-b + sqrt(discriminant)) / (2 * a);
+			*x2 = (-b - sqrt(discriminant)) / (2 * a);
+			return 2;
+		}
+	}
+}
+int GetRootsLinks(int a, int b, int c, double& x1, double& x2)
+{
+	double discriminant;
+
+	if ((a == 0) & (b == 0))
+	{
+		return 0;
+	}
+	else if (a == 0)
+	{
+		x1 = -c / b;
+		return 1;
+	}
+	else
+	{
+		discriminant = b * b - 4 * a * c;
+
+		if (discriminant < 0)
+		{
+			return 0;
+		}
+		else if (discriminant == 0)
+		{
+			x1 = (-b + sqrt(discriminant)) / (2 * a);
+			return 1;
+		}
+		else
+		{
+			x1 = (-b + sqrt(discriminant)) / (2 * a);
+			x2 = (-b - sqrt(discriminant)) / (2 * a);
+			return 2;
+		}
+	}
+	return 0;
+}
+
+void SummNumbers(int value1, int value2)
+{
+	cout << "Ñóììà öåëûõ ÷èñåë = " << value1 + value2 << endl;
+}
+void SummNumbers(double value1, double value2)
+{
+	cout << "Ñóììà double'îâ = " << value1 + value2 << endl;
+}
+void SummNumbers(int value1, double value2)
+{
+	cout << "Ñóììà öåëîãî è double-÷èñëà = " << value1 + value2 << endl;
+}
+
+void GlobalPlusTwo()
+{
+	globalVariable += 2;
+}
+void GlobalMultiplyThree()
+{
+	globalVariable *= 3;
+}
+void GlobalEqualsOne()
+{
+	globalVariable = 1;
+}
+
+double GetPower(int base, int power)
+{
+	if (power == 0)
+		return 1;
+	else if (power < 0)
+		return 1 / GetPower(base, -power);
+	else
+		return base * GetPower(base, power - 1);
+}
+
 void LauncherLab2()
 {
 	setlocale(0, "");
@@ -61,6 +176,12 @@ void LauncherLab2()
 		cout << "Íàæìèòå... \n";
 		cout << "'0' - Âûâåñòè íà ýêðàí 'Hello World'; \n";
 		cout << "'1' - Çàïóñòèòü êàëüêóëÿòîð; \n";
+		cout << "'2' - Äåëåíèå öåëî÷èñëåííûõ ÷èñåë; \n";
+		cout << "'3' - Íàõîæäåíèå êîðíåé êâàäðàòíîãî óðàâíåíèÿ (ñ ïîìîùüþ óêàçàòåëåé); \n";
+		cout << "'4' - Íàõîæäåíèå êîðíåé êâàäðàòíîãî óðàâíåíèÿ (ñ ïîìîùüþ ññûëîê); \n";
+		cout << "'5' - Ðàñ÷èòàòü ñóììó äâóõ ïåðåìåííûõ; \n";
+		cout << "'6' - Äåìîíñòðàöèÿ èñïîëüçîâàíèÿ ãëîáàëüíûõ ïåðåìåííûõ; \n";
+		cout << "'7' - Âû÷èñëåíèå óêàçàííîé ñòåïåíè ëþáîãî öåëîãî ÷èñëà; \n";
 		cout << "Íàæìèòå Esc äëÿ âûõîäà. \n\n";
 
 		key = _getch();
@@ -70,6 +191,7 @@ void LauncherLab2()
 		{
 		case '0':
 			PrintHelloWorld();
+
 			system("pause");
 			break;
 		case '1':
@@ -92,6 +214,134 @@ void LauncherLab2()
 				fflush(stdin); 
 			}
 			cout << "\n" << value1 << " " << key << " " << value2 << " = " << MakeCalculation((int)value1, value2, key) << endl;
+
+			system("pause");
+			break;
+		}
+		case '2':
+		{
+			int a = 0;
+			int b = 0;
+
+			cout << "Ââåäèòå äåëèìîå: ";
+			a = ÑheckingÑorrectness();
+			cout << "Ââåäèòå äåëèòåëü: ";
+			b = ÑheckingÑorrectness();
+			int result = Divide(a, b);
+			cout << "Ðåçóëüòàò äåëåíèÿ: " << result;
+
+			system("pause");
+			break;
+		}
+		case '3':
+		{
+			int a, b, c;
+			double x1, x2;
+			double* pointerX1 = &x1;
+			double* pointerX2 = &x2;
+
+			cout << "Ââåäèòå ïåðåìåííóþ à: ";
+			a = ÑheckingÑorrectness();
+			cout << "Ââåäèòå ïåðåìåííóþ b: ";
+			b = ÑheckingÑorrectness();
+			cout << "Ââåäèòå ïåðåìåííóþ c: ";
+			c = ÑheckingÑorrectness();
+
+			int countRoots = GetRootsPointers(a, b, c, pointerX1, pointerX2);
+
+			if (countRoots == 0)
+			{
+				cout << "\nÊîðíåé íåò!" << endl;
+			}
+			else if (countRoots == 1)
+			{
+				cout << "\nÎäèí êîðåíü: " << x1 << endl;
+			}
+			else
+			{
+				cout << "\nÄâà êîðíÿ:" << "\n";
+				cout << "x1 = " << x1 << "\n" << "x2 = " << x2 << endl;
+			}
+
+			system("pause");
+			break;
+		}
+		case '4':
+		{
+			int a, b, c;
+			double x1, x2;
+			double& referenceX1 = x1;
+			double& referenceX2 = x2;
+
+			cout << "Ââåäèòå ïåðåìåííóþ à: ";
+			a = ÑheckingÑorrectness();
+			cout << "Ââåäèòå ïåðåìåííóþ b: ";
+			b = ÑheckingÑorrectness();
+			cout << "Ââåäèòå ïåðåìåííóþ c: ";
+			c = ÑheckingÑorrectness();
+
+			int countRoots = GetRootsLinks(a, b, c, referenceX1, referenceX2);
+
+			if (countRoots == 0)
+			{
+				cout << "\nÊîðíåé íåò!" << endl;
+			}
+			else if (countRoots == 1)
+			{
+				cout << "\nÎäèí êîðåíü: " << x1 << endl;
+			}
+			else
+			{
+				cout << "\nÄâà êîðíÿ:" << "\n";
+				cout << "x1 = " << x1 << "\n" << "x2 = " << x2 << endl;
+			}
+
+			system("pause");
+			break;
+		}
+		case '5':
+		{
+			int a = 1;
+			int b = 2;
+			SummNumbers(a, b);
+
+			double x = 3.0;
+			double y = 4.0;
+			SummNumbers(x, y);
+			SummNumbers(a, y);
+
+			float m = 5.0;
+			float n = 6.0;
+			SummNumbers(m, n);
+
+			system("pause");
+			break;
+		}
+		case '6':
+			cout << "Ãëîáàëüíàÿ ïåðåìåííàÿ = " << globalVariable << "\n";
+			GlobalPlusTwo();
+			cout << "Ãëîáàëüíàÿ ïåðåìåííàÿ = " << globalVariable << "\n";
+			GlobalMultiplyThree();
+			cout << "Ãëîáàëüíàÿ ïåðåìåííàÿ = " << globalVariable << "\n";
+			GlobalEqualsOne();
+			cout << "Ãëîáàëüíàÿ ïåðåìåííàÿ = " << globalVariable << "\n";
+			globalVariable = 5;
+			cout << "Ãëîáàëüíàÿ ïåðåìåííàÿ = " << globalVariable << endl;
+
+			system("pause");
+			break;
+		case '7':
+		{
+			int base, power;
+			double result;
+
+			cout << "Ââåäèòå îñíîâàíèå ñòåïåíè: ";
+			base = ÑheckingÑorrectness();
+			cout << "Ââåäèòå ïîêàçàòåëü ñòåïåíè: ";
+			power = ÑheckingÑorrectness();
+
+			result = GetPower(base, power);
+			cout << "Ðåçóëüòàò: " << result << endl;
 
 			system("pause");
 			break;
