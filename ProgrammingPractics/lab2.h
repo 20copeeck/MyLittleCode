@@ -14,8 +14,10 @@ void GlobalMultiplyThree();  //Демонстрация использования глобальных переменных
 void GlobalEqualsOne();  //Демонстрация использования глобальных переменных
 double GetPower(int base, int power); //Функция для вычисления указанной степени любого целого числа
 void PlayGame(); // Игра "Угадай число"
-void BubbleSortArrayOne(int integerArray[5]);
-void BubbleSortArrayTwo(int integerArray[], int length_array);
-void BubbleSortArrayThree(int* arrayPtr, int length_array);
+void BubbleSortArrayOne(int integerArray[5]); //Сортировка пузырьком. Способ 1
+void BubbleSortArrayTwo(int integerArray[], int length_array); //Сортировка пузырьком. Способ 2
+void BubbleSortArrayThree(int* arrayPtr, int length_array); //Сортировка пузырьком. Способ 3
+void MultiplyMatrices(int** matrixA, int rowsA, int columnsA, int** matrixB, int rowsB, int columnsB, int** matrixResult); //Перемножение матриц
+void PrintMatrix(int** matrix, int columns, int rows); //Вывод матрицы на экран
 
-void LauncherLab2();
+void LauncherLab2(); //Запускатор

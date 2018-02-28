@@ -251,6 +251,33 @@ void BubbleSortArrayThree(int* arrayPtr, int length_array) // сортировка пузырьк
 	}
 }
 
+void MultiplyMatrices(int** matrixA, int rowsA, int columnsA, int** matrixB, int rowsB, int columnsB, int** matrixResult)
+{
+	for (int i = 0; i < rowsA; i++)
+	{
+		for (int j = 0; j < columnsB; j++)
+		{
+			matrixResult[i][j] = 0;
+			for (int k = 0; k < columnsA; k++)
+			{
+				matrixResult[i][j] += (matrixA[i][k] * matrixB[k][j]);
+			}
+		}
+	}
+}
+void PrintMatrix(int** matrix, int columns, int rows)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < columns; j++)
+		{
+			cout.width(8);
+			cout << matrix[i][j];
+		}
+		cout << endl;
+	}
+}
+
 void LauncherLab2()
 {
 	setlocale(0, "");
@@ -271,7 +298,8 @@ void LauncherLab2()
 		cout << "'6' - Демонстрация использования глобальных переменных; \n";
 		cout << "'7' - Вычисление указанной степени любого целого числа; \n";
 		cout << "'8' - Игра 'Угадай число'; \n";
-		cout << "'9' - Массивы;";
+		cout << "'9' - Массивы;\n";
+		cout << "'-' - Произведение матриц;\n";
 		cout << "Нажмите Esc для выхода. \n\n";
 
 		key = _getch();
@@ -281,7 +309,6 @@ void LauncherLab2()
 		{
 		case '0':
 			PrintHelloWorld();
-
 			system("pause");
 			break;
 		case '1':
@@ -318,7 +345,7 @@ void LauncherLab2()
 			cout << "Введите делитель: ";
 			b = СheckingСorrectness();
 			int result = Divide(a, b);
-			cout << "Результат деления: " << result;
+			cout << "\nРезультат деления: " << result;
 
 			system("pause");
 			break;
@@ -438,7 +465,6 @@ void LauncherLab2()
 		}
 		case '8':
 			PlayGame();
-
 			system("pause");
 			break;
 		case '9':
@@ -468,6 +494,83 @@ void LauncherLab2()
 				cout << integerArray[i] << " ";
 			}
 			cout << endl;
+
+			system("pause");
+			break;
+		}
+		case '-':
+		{
+			cout << "Введите количество строк матрицы А: ";
+			int rowsA = СheckingСorrectness();
+			cout << "Введите количество столбцов матрицы А: ";
+			int columnsA = СheckingСorrectness();
+			cout << "\nВведите количество строк матрицы В: ";
+			int rowsB = СheckingСorrectness();
+			cout << "Введите количество столбцов матрицы В: ";
+			int columnsB = СheckingСorrectness();
+
+			while (rowsA < 0 || rowsB < 0 || columnsA < 0 || columnsB < 0)
+			{
+				cout << "\nКоличество строк и столбцов не может быть отрицательным или нулевым!";
+
+				cout << "\nВведите количество строк матрицы А: ";
+				rowsA = СheckingСorrectness();
+				cout << "Введите количество столбцов матрицы А: ";
+				columnsA = СheckingСorrectness();
+				cout << "\nВведите количество строк матрицы В: ";
+				rowsB = СheckingСorrectness();
+				cout << "Введите количество столбцов матрицы В: ";
+				columnsB = СheckingСorrectness();
+			}
+
+			if (columnsA == rowsB)
+			{
+				int rowsResult = rowsA;
+				int columnsResult = columnsB;
+
+				int** matrixA = new int*[rowsA];
+				for (int i = 0; i < rowsA; i++)
+					matrixA[i] = new int[columnsA];
+
+				int** matrixB = new int*[rowsB];
+				for (int i = 0; i < rowsB; i++)
+					matrixB[i] = new int[columnsB];
+
+				int** matrixResult = new int*[rowsResult];
+				for (int i = 0; i < rowsResult; i++)
+					matrixResult[i] = new int[columnsResult];
+
+				//--------------------------------------------------
+
+				for (int i = 0; i < rowsA; i++)
+					for (int j = 0; j < columnsA; j++)
+						matrixA[i][j] = rand() % 100;
+
+				for (int i = 0; i < rowsB; i++)
+					for (int j = 0; j < columnsB; j++)
+						matrixB[i][j] = rand() % 100;
+
+				MultiplyMatrices(matrixA, rowsA, columnsA, matrixB, rowsB, columnsB, matrixResult);
+
+				cout << "\nМатрица А:" << endl;
+				PrintMatrix(matrixA, columnsA, rowsA);
+				cout << "____________________________" << endl;
+				cout << "Матрица В:" << endl;
+				PrintMatrix(matrixB, columnsB, rowsB);
+				cout << "____________________________" << endl;
+				cout << "Результирующая матрица:" << endl;
+				PrintMatrix(matrixResult, columnsResult, rowsResult);
+
+				for (int i = 0; i < rowsA; i++)
+					delete[] matrixA[i];
+				for (int i = 0; i < rowsB; i++)
+					delete[] matrixB[i];
+				for (int i = 0; i < rowsResult; i++)
+					delete[] matrixResult[i];
+				delete[] matrixA, matrixB, matrixResult;
+			}
+			else
+				cout << "\nКоличество столбцов матрицы А должно быть равно количеству строк матрицы В!" << endl;
 
 			system("pause");
 			break;
