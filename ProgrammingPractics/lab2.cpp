@@ -18,7 +18,7 @@ int СheckingСorrectness()
 	{
 		cin >> value;
 		if (!(good = cin.good()))
-			cout << "Ошибка!!!" << "\n" << "ВВЕДИТЕ ЦЕЛОЕ ЧИСЛО: ";
+			cout << "Ошибка!!! Некорректное значение" << "\n" << "Попробуйте снова: ";
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	} while (!good);
@@ -163,6 +163,94 @@ double GetPower(int base, int power)
 		return base * GetPower(base, power - 1);
 }
 
+void PlayGame()
+{
+	srand(time(NULL)); // для задания случайного начального числа
+	cout << "\n---Игра: Угадай число---\n";
+	int guessNumber = rand() % 10; // генерация угадываемого числа
+	int enteredNumber; // вводимое пользователем число
+	int shots = 1; // количество попыток
+
+	cout << "Введите цифру от 0 до 9: ";
+	enteredNumber = СheckingСorrectness();
+
+	while (guessNumber != enteredNumber)
+	{
+		shots++;
+		if (enteredNumber < guessNumber)
+		{
+			cout << "Не угадали!!! Загаданное число больше)\nВведите цифру от 0 до 9: ";
+		}
+		else if (enteredNumber > guessNumber)
+		{
+			cout << "Не угадали!!! Загаданное число меньше)\nВведите цифру от 0 до 9: ";
+		}
+		cin >> enteredNumber;
+	}
+	cout << "\nПравильно!!! Вы выйграли с " << shots << " попытки!" << endl;
+}
+
+void BubbleSortArrayOne(int integerArray[5]) // сортировка пузырьком
+{
+	int temp = 0; // временная переменная для хранения элемента массива
+	bool exit = false; // болевая переменная для выхода из цикла, если массив отсортирован
+
+	while (!exit) // пока массив не отсортирован
+	{
+		exit = true;
+		for (int int_counter = 0; int_counter < (5 - 1); int_counter++) // внутренний цикл
+																				   //сортировка пузырьком по возрастанию - знак >
+			if (integerArray[int_counter] > integerArray[int_counter + 1]) // сравниваем два соседних элемента
+			{
+				// выполняем перестановку элементов массива
+				temp = integerArray[int_counter];
+				integerArray[int_counter] = integerArray[int_counter + 1];
+				integerArray[int_counter + 1] = temp;
+				exit = false; // на очередной итерации была произведена перестановка элементов
+			}
+	}
+}
+void BubbleSortArrayTwo(int integerArray[], int length_array) // сортировка пузырьком
+{
+	int temp = 0; // временная переменная для хранения элемента массива
+	bool exit = false; // болевая переменная для выхода из цикла, если массив отсортирован
+
+	while (!exit) // пока массив не отсортирован
+	{
+		exit = true;
+		for (int int_counter = 0; int_counter < (length_array - 1); int_counter++) // внутренний цикл
+																				   //сортировка пузырьком по возрастанию - знак >
+			if (integerArray[int_counter] > integerArray[int_counter + 1]) // сравниваем два соседних элемента
+			{
+				// выполняем перестановку элементов массива
+				temp = integerArray[int_counter];
+				integerArray[int_counter] = integerArray[int_counter + 1];
+				integerArray[int_counter + 1] = temp;
+				exit = false; // на очередной итерации была произведена перестановка элементов
+			}
+	}
+}
+void BubbleSortArrayThree(int* arrayPtr, int length_array) // сортировка пузырьком
+{
+	int temp = 0; // временная переменная для хранения элемента массива
+	bool exit = false; // болевая переменная для выхода из цикла, если массив отсортирован
+
+	while (!exit) // пока массив не отсортирован
+	{
+		exit = true;
+		for (int int_counter = 0; int_counter < (length_array - 1); int_counter++) // внутренний цикл
+																				   //сортировка пузырьком по возрастанию - знак >
+			if (arrayPtr[int_counter] > arrayPtr[int_counter + 1]) // сравниваем два соседних элемента
+			{
+				// выполняем перестановку элементов массива
+				temp = arrayPtr[int_counter];
+				arrayPtr[int_counter] = arrayPtr[int_counter + 1];
+				arrayPtr[int_counter + 1] = temp;
+				exit = false; // на очередной итерации была произведена перестановка элементов
+			}
+	}
+}
+
 void LauncherLab2()
 {
 	setlocale(0, "");
@@ -182,6 +270,8 @@ void LauncherLab2()
 		cout << "'5' - Расчитать сумму двух переменных; \n";
 		cout << "'6' - Демонстрация использования глобальных переменных; \n";
 		cout << "'7' - Вычисление указанной степени любого целого числа; \n";
+		cout << "'8' - Игра 'Угадай число'; \n";
+		cout << "'9' - Массивы;";
 		cout << "Нажмите Esc для выхода. \n\n";
 
 		key = _getch();
@@ -342,6 +432,42 @@ void LauncherLab2()
 
 			result = GetPower(base, power);
 			cout << "Результат: " << result << endl;
+
+			system("pause");
+			break;
+		}
+		case '8':
+			PlayGame();
+
+			system("pause");
+			break;
+		case '9':
+		{
+			const int arraySize = 5;
+			int integerArray[arraySize];
+
+			for (int i = 0; i < arraySize; i++)
+			{
+				integerArray[i] = rand() % 50;
+			}
+
+			cout << "Массив: " << "\n";
+			for (int i = 0; i < arraySize; i++)
+			{
+				cout << integerArray[i] << " ";
+			}
+			cout << endl;
+
+			//BubbleSortArrayOne(integerArray);
+			//BubbleSortArrayTwo(integerArray, arraySize);
+			BubbleSortArrayThree(integerArray, arraySize);
+
+			cout << "Отсортированный массив: " << "\n";
+			for (int i = 0; i < arraySize; i++)
+			{
+				cout << integerArray[i] << " ";
+			}
+			cout << endl;
 
 			system("pause");
 			break;

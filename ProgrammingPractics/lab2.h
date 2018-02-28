@@ -13,6 +13,9 @@ void GlobalPlusTwo();  //Демонстрация использования глобальных переменных
 void GlobalMultiplyThree();  //Демонстрация использования глобальных переменных
 void GlobalEqualsOne();  //Демонстрация использования глобальных переменных
 double GetPower(int base, int power); //Функция для вычисления указанной степени любого целого числа
-
+void PlayGame(); // Игра "Угадай число"
+void BubbleSortArrayOne(int integerArray[5]);
+void BubbleSortArrayTwo(int integerArray[], int length_array);
+void BubbleSortArrayThree(int* arrayPtr, int length_array);
 
 void LauncherLab2();
