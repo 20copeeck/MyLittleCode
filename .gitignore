@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+.vs/
+ProgrammingPractics/Debug/
+ProgrammingPractics/x64/Debug/
