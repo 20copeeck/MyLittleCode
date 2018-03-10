@@ -20,4 +20,4 @@ void BubbleSortArrayThree(int* arrayPtr, int length_array); //Сортировка пузырьк
 void MultiplyMatrices(int** matrixA, int rowsA, int columnsA, int** matrixB, int rowsB, int columnsB, int** matrixResult); //Перемножение матриц
 void PrintMatrix(int** matrix, int columns, int rows); //Вывод матрицы на экран
 
-void LauncherLab2(); //Запускатор
+void LauncherLab2(); //Функция для запуска меню лабы №2

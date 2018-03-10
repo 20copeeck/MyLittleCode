@@ -52,9 +52,7 @@ double MakeCalculation(int value1, int value2, char operationKey)
 
 int Divide(int dividend, int divisor)
 {
-	int result;
-	result = dividend / divisor;
-	return result;
+	return (dividend / divisor);
 }
 
 int GetRootsPointers(int a, int b, int c, double* x1, double* x2)
@@ -190,63 +188,57 @@ void PlayGame()
 	cout << "\nПравильно!!! Вы выйграли с " << shots << " попытки!" << endl;
 }
 
-void BubbleSortArrayOne(int integerArray[5]) // сортировка пузырьком
+void BubbleSortArrayOne(int integerArray[5]) 
 {
-	int temp = 0; // временная переменная для хранения элемента массива
-	bool exit = false; // болевая переменная для выхода из цикла, если массив отсортирован
+	int temp = 0; 
+	bool exit = false; 
 
-	while (!exit) // пока массив не отсортирован
+	while (!exit) 
 	{
 		exit = true;
-		for (int int_counter = 0; int_counter < (5 - 1); int_counter++) // внутренний цикл
-																				   //сортировка пузырьком по возрастанию - знак >
-			if (integerArray[int_counter] > integerArray[int_counter + 1]) // сравниваем два соседних элемента
+		for (int int_counter = 0; int_counter < (5 - 1); int_counter++) 
+			if (integerArray[int_counter] > integerArray[int_counter + 1]) 
 			{
-				// выполняем перестановку элементов массива
 				temp = integerArray[int_counter];
 				integerArray[int_counter] = integerArray[int_counter + 1];
 				integerArray[int_counter + 1] = temp;
-				exit = false; // на очередной итерации была произведена перестановка элементов
+				exit = false; 
 			}
 	}
 }
-void BubbleSortArrayTwo(int integerArray[], int length_array) // сортировка пузырьком
+void BubbleSortArrayTwo(int integerArray[], int length_array) 
 {
-	int temp = 0; // временная переменная для хранения элемента массива
-	bool exit = false; // болевая переменная для выхода из цикла, если массив отсортирован
+	int temp = 0; 
+	bool exit = false; 
 
-	while (!exit) // пока массив не отсортирован
+	while (!exit) 
 	{
 		exit = true;
-		for (int int_counter = 0; int_counter < (length_array - 1); int_counter++) // внутренний цикл
-																				   //сортировка пузырьком по возрастанию - знак >
-			if (integerArray[int_counter] > integerArray[int_counter + 1]) // сравниваем два соседних элемента
+		for (int int_counter = 0; int_counter < (length_array - 1); int_counter++) 
+			if (integerArray[int_counter] > integerArray[int_counter + 1]) 
 			{
-				// выполняем перестановку элементов массива
 				temp = integerArray[int_counter];
 				integerArray[int_counter] = integerArray[int_counter + 1];
 				integerArray[int_counter + 1] = temp;
-				exit = false; // на очередной итерации была произведена перестановка элементов
+				exit = false; 
 			}
 	}
 }
-void BubbleSortArrayThree(int* arrayPtr, int length_array) // сортировка пузырьком
+void BubbleSortArrayThree(int* arrayPtr, int length_array) 
 {
-	int temp = 0; // временная переменная для хранения элемента массива
-	bool exit = false; // болевая переменная для выхода из цикла, если массив отсортирован
+	int temp = 0; 
+	bool exit = false; 
 
-	while (!exit) // пока массив не отсортирован
+	while (!exit) 
 	{
 		exit = true;
-		for (int int_counter = 0; int_counter < (length_array - 1); int_counter++) // внутренний цикл
-																				   //сортировка пузырьком по возрастанию - знак >
-			if (arrayPtr[int_counter] > arrayPtr[int_counter + 1]) // сравниваем два соседних элемента
+		for (int int_counter = 0; int_counter < (length_array - 1); int_counter++) 
+			if (arrayPtr[int_counter] > arrayPtr[int_counter + 1]) 
 			{
-				// выполняем перестановку элементов массива
 				temp = arrayPtr[int_counter];
 				arrayPtr[int_counter] = arrayPtr[int_counter + 1];
 				arrayPtr[int_counter + 1] = temp;
-				exit = false; // на очередной итерации была произведена перестановка элементов
+				exit = false; 
 			}
 	}
 }
