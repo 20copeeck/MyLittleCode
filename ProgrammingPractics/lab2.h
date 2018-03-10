@@ -1,0 +1,23 @@
+#pragma once
+
+void PrintHelloWorld();  //Реализация функции, выводящей на экран текст
+int СheckingСorrectness();  //Проверка на введение целочисленных значений
+double MakeCalculation(int value1, int value2, char operationKey); //Функция, выполняющая математические операции
+int Divide(int dividend, int divisor);  //Функция деления двух целочисленных переменных
+int GetRootsPointers(int a, int b, int c, double* x1, double* x2); //Функция, вычисляющая корни квадратного уравнения (с помощью указателей)
+int GetRootsLinks(int a, int b, int c, double& x1, double& x2);  //Функция, вычисляющая корни квадратного уравнения (с помощью ссылок)
+void SummNumbers(int value1, int value2); //Рассчитать сумму двух целочисленных переменных
+void SummNumbers(double value1, double value2); //Рассчитать сумму двух double переменных
+void SummNumbers(int value1, double value2); //Рассчитать сумму целого и double переменных
+void GlobalPlusTwo();  //Демонстрация использования глобальных переменных
+void GlobalMultiplyThree();  //Демонстрация использования глобальных переменных
+void GlobalEqualsOne();  //Демонстрация использования глобальных переменных
+double GetPower(int base, int power); //Функция для вычисления указанной степени любого целого числа
+void PlayGame(); // Игра "Угадай число"
+void BubbleSortArrayOne(int integerArray[5]); //Сортировка пузырьком. Способ 1
+void BubbleSortArrayTwo(int integerArray[], int length_array); //Сортировка пузырьком. Способ 2
+void BubbleSortArrayThree(int* arrayPtr, int length_array); //Сортировка пузырьком. Способ 3
+void MultiplyMatrices(int** matrixA, int rowsA, int columnsA, int** matrixB, int rowsB, int columnsB, int** matrixResult); //Перемножение матриц
+void PrintMatrix(int** matrix, int columns, int rows); //Вывод матрицы на экран
+
+void LauncherLab2(); //Функция для запуска меню лабы №2
