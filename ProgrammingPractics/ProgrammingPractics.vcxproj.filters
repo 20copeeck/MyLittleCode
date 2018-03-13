@@ -48,6 +48,9 @@
     <ClInclude Include="lab3.h">
       <Filter>Файлы заголовков\lab3</Filter>
     </ClInclude>
+    <ClInclude Include="checks.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -64,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="lab3.cpp">
       <Filter>Исходные файлы\lab3</Filter>
+    </ClCompile>
+    <ClCompile Include="checks.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -10,22 +10,6 @@ void PrintHelloWorld()
 	cout << "Hello, World!\n";
 }
 
-int ÑheckingÑorrectness()
-{
-	int value;
-	bool good = true;
-	do
-	{
-		cin >> value;
-		if (!(good = cin.good()))
-			cout << "Îøèáêà!!! Íåêîððåêòíîå çíà÷åíèå" << "\n" << "Ïîïðîáóéòå ñíîâà: ";
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	} while (!good);
-
-	return value;
-}
-
 double MakeCalculation(int value1, int value2, char operationKey)
 {
 	if (operationKey == '+')
