@@ -1,7 +1,8 @@
-#include "lab3.h"
 #include "stdafx.h"
+#include "lab3.h"
 
 using namespace std;
+
 
 int GetLength(char* string)
 {
@@ -55,30 +56,20 @@ char* GetSubstring(char* string, int startIndex, int charCount)
 
 int FindSubstring(char* string, char* substring)
 {
-	int lengthStr = GetLength(string);
-	int lengthSubstring = GetLength(substring);
-	int i = 0, j = 0;
-
-	for (i; string[i]; i++)
+	int j = 0;
+	for (int i = 0; string[i]; i++)
 	{
 		if (string[i] == substring[j])
 		{
-			if (j + 1 == lengthSubstring)
+			while (string[++i] == substring[++j])
 			{
-				return i;
-			}
-			else
-			{
-				for (j = 1; j < lengthSubstring; j++)
+				if (!substring[j + 1])
 				{
-					if (substring[j] != string[i + j])
-					{
-						return -1;
-					}
-					return i;
+					return i - j;
 				}
-				
 			}
+			i -= j;
+			j = 0;
 		}
 	}
 	return -1;
@@ -156,6 +147,113 @@ void SplitFilename(char* source, char* path, char* name, char* extension)
 	}
 }
 
+bool isNeedTab(char* string, int i, int tab)
+{
+	while (i % tab != 0)
+	{
+		if (string[i] != ':')
+		{
+			return false;
+		}
+		i++;
+	}
+	return true;
+}
+char* ReplaceTabsOnSpaces(char* string)
+{
+	char* resultString = new char[100];
+	int i = 0;
+	int j = 0;
+
+	for (i; string[i]; i++)
+	{
+		if (string[i] == '\t')
+		{
+			for (j; (i + j + 1) % 8 != 0; j++)
+			{
+				resultString[i + j] = ':';
+			}
+			resultString[i + j] = ':';
+		}
+		else
+		{
+			resultString[i + j] = string[i];
+		}
+	}
+	resultString[i + j] = '\0';
+	return resultString;
+}
+char* ReplaceSpacesOnTabs(char* string)
+{
+	char* result = new char[50];
+	int tab = 8;
+	int i = 0;
+	int j = 0;
+
+	for (; string[i + j]; i++)
+	{
+		if (string[i + j] == ':' && isNeedTab(string, i + j + 1, tab))
+		{
+			while ((i + j + 1) % 8 != 0)
+			{
+				j++;
+			}
+			result[i] = '\t';
+		}
+		else
+		{
+			result[i] = string[i + j];
+		}
+	}
+	result[i] = '\0';
+	return result;
+}
+
+Person ReadPerson()
+{
+	Person people;
+	cout << "Введите фамилию: ";
+	cin.getline (people.Surname, 40);
+	cout << "Введите имя: ";
+	cin.getline (people.Name, 20);
+	cout << "Введите возраст: ";
+	cin >> people.Age;
+	cout << "Выберите пол:\n0 - Женщина\n1 - Мужчина\n";
+
+	int i;
+	do
+	{
+		i = СheckingСorrectness();
+	} while (i != 0 && i != 1);
+	switch (i)
+	{
+	case 0:
+		people.SexPeople = Женщина;
+		break;
+	case 1:
+		people.SexPeople = Мужчина;
+		break;
+	default:
+		cout << "Ошибка, повторите ввод:" << endl;
+		break;
+	}
+	return people;
+}
+void PrintPerson(Person person)
+{
+	cout << "Фамилия: " << person.Surname << "\n";
+	cout << "Имя: " << person.Name << "\n";
+	cout << "Возраст: " << person.Age << "\n";
+	if (person.SexPeople == 0)
+	{
+		cout << "Пол: Женский" << endl;
+	}
+	else
+	{
+		cout << "Пол: Мужской" << endl;
+	}
+}
+
 void LauncherLab3()
 {
 	int ascii = 0;
@@ -173,6 +271,8 @@ void LauncherLab3()
 		cout << "'5' - Перевести строку в нижний регистр;\n";
 		cout << "'6' - Разбиение ресурса на путь, имя и расширение;\n";
 		cout << "'7' - Замена символов табуляции на пробелы;\n";
+		cout << "'8' - Замена пробелов на символы табуляции;\n";
+		cout << "'9' - Записать данные в структуру и вывести на экран;\n";
 		cout << "'Esc' - Вернуться к выбору лабораторной работы...\n\n";
 
 		key = _getch();
@@ -276,6 +376,36 @@ void LauncherLab3()
 			SplitFilename(sourse, path, name, extension);
 			cout << "Путь: " << path << "\nИмя: " << name << "\nРасширение: " << extension << endl;
 
+
+			system("pause");
+			break;
+		}
+		case '7':
+		{
+			char str[100] = "Cake\t\tis a lie! ";
+			cout << "!\t!\t!\t!\t!\t!\t!\t!\n" << str << "\n";
+			char* result = ReplaceTabsOnSpaces(str);
+			cout << result << endl;
+
+			delete[] result;
+			system("pause");
+			break;
+		}
+		case '8':
+		{
+			char str[100] = "Cake::::is::::a:lie!";
+			cout << "!\t!\t!\t!\t!\t!\t!\t!\n" << str << "\n";
+			char* result = ReplaceSpacesOnTabs(str);
+			cout << result << endl;
+
+			delete[] result;
+			system("pause");
+			break;
+		}
+		case '9':
+		{
+			Person people = ReadPerson();
+			PrintPerson(people);
 
 			system("pause");
 			break;
