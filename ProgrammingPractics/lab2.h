@@ -1,7 +1,6 @@
 #pragma once
 
 void PrintHelloWorld();  //Реализация функции, выводящей на экран текст
-int СheckingСorrectness();  //Проверка на введение целочисленных значений
 double MakeCalculation(int value1, int value2, char operationKey); //Функция, выполняющая математические операции
 int Divide(int dividend, int divisor);  //Функция деления двух целочисленных переменных
 int GetRootsPointers(int a, int b, int c, double* x1, double* x2); //Функция, вычисляющая корни квадратного уравнения (с помощью указателей)

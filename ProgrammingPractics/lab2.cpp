@@ -10,22 +10,6 @@ void PrintHelloWorld()
 	cout << "Hello, World!\n";
 }
 
-int СheckingСorrectness()
-{
-	int value;
-	bool good = true;
-	do
-	{
-		cin >> value;
-		if (!(good = cin.good()))
-			cout << "Ошибка!!! Некорректное значение" << "\n" << "Попробуйте снова: ";
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	} while (!good);
-
-	return value;
-}
-
 double MakeCalculation(int value1, int value2, char operationKey)
 {
 	if (operationKey == '+')
@@ -292,7 +276,7 @@ void LauncherLab2()
 		cout << "'8' - Игра 'Угадай число'; \n";
 		cout << "'9' - Массивы;\n";
 		cout << "'-' - Произведение матриц;\n";
-		cout << "Нажмите Esc для выхода. \n\n";
+		cout << "'Esc' - Вернуться к выбору лабораторной работы...\n\n";
 
 		key = _getch();
 		ascii = key;
