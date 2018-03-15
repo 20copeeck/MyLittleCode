@@ -20,11 +20,11 @@ char* Concatenate(char* string1, char* string2)
 	char* doubleStr = new char[GetLength(string1) + GetLength(string2) + 1];
 	int i = 0, j = 0;
 
-	for (i; string1[i]; i++)
+	for (; string1[i]; i++)
 	{
 		doubleStr[i] = string1[i];
 	}
-	for (j; string2[j]; j++)
+	for (; string2[j]; j++)
 	{
 		doubleStr[i + j] = string2[j];
 	}
@@ -44,7 +44,7 @@ char* GetSubstring(char* string, int startIndex, int charCount)
 		char* substring = new char[GetLength(string) + 1];
 		int i = 0;
 
-		for (i; i < charCount; i++)
+		for (; i < charCount; i++)
 		{
 			substring[i] = string[startIndex + i];
 		}
@@ -139,12 +139,6 @@ void SplitFilename(char* source, char* path, char* name, char* extension)
 			j++;
 		}
 	}
-	else
-	{
-		path[0] = 'N'; path[1] = 'U'; path[2] = 'L'; path[3] = 'L';
-		name[0] = 'N'; name[1] = 'U'; name[2] = 'L'; name[3] = 'L';
-		extension[0] = 'N'; extension[1] = 'U'; extension[2] = 'L'; extension[3] = 'L';
-	}
 }
 
 bool isNeedTab(char* string, int i, int tab)
@@ -165,11 +159,11 @@ char* ReplaceTabsOnSpaces(char* string)
 	int i = 0;
 	int j = 0;
 
-	for (i; string[i]; i++)
+	for (; string[i]; i++)
 	{
 		if (string[i] == '\t')
 		{
-			for (j; (i + j + 1) % 8 != 0; j++)
+			for (; (i + j + 1) % 8 != 0; j++)
 			{
 				resultString[i + j] = ':';
 			}
@@ -228,10 +222,10 @@ Person ReadPerson()
 	switch (i)
 	{
 	case 0:
-		people.SexPeople = Женщина;
+		people.Sex = Women;
 		break;
 	case 1:
-		people.SexPeople = Мужчина;
+		people.Sex = Men;
 		break;
 	default:
 		cout << "Ошибка, повторите ввод:" << endl;
@@ -244,7 +238,7 @@ void PrintPerson(Person person)
 	cout << "Фамилия: " << person.Surname << "\n";
 	cout << "Имя: " << person.Name << "\n";
 	cout << "Возраст: " << person.Age << "\n";
-	if (person.SexPeople == 0)
+	if (person.Sex == 0)
 	{
 		cout << "Пол: Женский" << endl;
 	}

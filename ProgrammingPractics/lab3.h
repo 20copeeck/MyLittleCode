@@ -1,8 +1,9 @@
 #pragma once
 
-enum Sex
-{
-	Женщина, Мужчина
+enum Sex 
+{	
+	Women, 
+	Men 
 };
 
 struct Person
@@ -10,7 +11,7 @@ struct Person
 	char Surname[40];
 	char Name[20];
 	int Age;
-	Sex SexPeople;
+	Sex Sex;
 };
 
 int GetLength(char* string); //Функция для подсчета кол-ва символов в введенной строке
