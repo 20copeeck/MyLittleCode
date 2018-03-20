@@ -221,6 +221,29 @@ void Insert(List* list, Person person)
 	}
 }
 
+void Clear(List* list)
+{
+	Node* node = list->head;
+
+	if (node)
+	{
+		while (node->next)
+		{
+			node = node->next;
+			delete node->prev;
+		}
+		delete node;
+
+		list->head = NULL;
+		list->tail = NULL;
+	}
+	else
+	{
+		cout << "Список и так пуст!" << endl;
+		system("pause");
+	}
+}
+
 void LauncherLab4()
 {
 
@@ -238,6 +261,7 @@ void LauncherLab4()
 		cout << "'1' - Вывести адрес указанного элемента;\n";
 		cout << "'2' - Удалить указанный элемент;\n";
 		cout << "'3' - Вставка элемента по указанному индексу;\n";
+		cout << "'4' - Очистить содержимое списка;\n";
 		cout << "'Esc' - Вернуться к выбору лабораторной работы...\n\n";
 
 		key = _getch();
@@ -271,6 +295,11 @@ void LauncherLab4()
 		case '3':
 		{
 			Insert(list, *MakeRandomPerson());
+			break;
+		}
+		case '4':
+		{
+			Clear(list);
 			break;
 		}
 		}

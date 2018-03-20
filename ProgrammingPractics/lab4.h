@@ -22,3 +22,4 @@ int GetLength(List* list);
 Node* GetAddress(List* list);
 int CheckingRange(int value1, int value2);
 void Insert(List* list, Person person);
+void Clear(List* list);
