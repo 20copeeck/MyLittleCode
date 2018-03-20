@@ -31,6 +31,12 @@
     <Filter Include="Файлы заголовков\lab3">
       <UniqueIdentifier>{7ff3fcb7-91a8-41bc-b59d-2f2fb1b02358}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\lab4">
+      <UniqueIdentifier>{8f6e01a1-c714-49c5-8241-b22a558cdb04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\lab4">
+      <UniqueIdentifier>{3ad9bc37-7ae7-4fb1-a10c-7a1563f1c83c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -48,7 +54,10 @@
     <ClInclude Include="lab3.h">
       <Filter>Файлы заголовков\lab3</Filter>
     </ClInclude>
-    <ClInclude Include="checks.h">
+    <ClInclude Include="lab4.h">
+      <Filter>Файлы заголовков\lab4</Filter>
+    </ClInclude>
+    <ClInclude Include="addition.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,7 +77,10 @@
     <ClCompile Include="lab3.cpp">
       <Filter>Исходные файлы\lab3</Filter>
     </ClCompile>
-    <ClCompile Include="checks.cpp">
+    <ClCompile Include="lab4.cpp">
+      <Filter>Исходные файлы\lab4</Filter>
+    </ClCompile>
+    <ClCompile Include="addition.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

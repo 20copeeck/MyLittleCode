@@ -1,19 +1,5 @@
 #pragma once
 
-enum Sex 
-{	
-	Women, 
-	Men 
-};
-
-struct Person
-{
-	char Surname[40];
-	char Name[20];
-	int Age;
-	Sex Sex;
-};
-
 int GetLength(char* string); //Функция для подсчета кол-ва символов в введенной строке
 char* Concatenate(char* string1, char* string2); //Функция, объединяющая две строки в одну
 char* GetSubstring(char* string, int startIndex, int charCount); //Вывод подстроки
