@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include "lab4.h"
+#include <Windows.h>
 
 using namespace std;
 
@@ -128,7 +129,7 @@ Node* GetAddress(List* list)
 		int index;
 		cout << "Адрес какого элемента необходимо получить? (От 0 до " << GetLength(list) - 1 << ")\n";
 		index = СheckingСorrectness();
-		CheckingRange(index, GetLength(list));
+		index = CheckingRange(index, GetLength(list));
 
 		for (int i = 0; i < index; i++)
 		{
@@ -152,7 +153,7 @@ void Remove(List* list)
 		int index;
 		cout << "Какой элемент удалить? (От 0 до " << GetLength(list) - 1 << ")\n";
 		index = СheckingСorrectness();
-		CheckingRange(index, GetLength(list));
+		index = CheckingRange(index, GetLength(list));
 
 		for (int i = 0; i < index; i++)
 		{
@@ -196,7 +197,7 @@ void Insert(List* list, Person person)
 	{
 		cout << "На какую позицию вставить элемент? (От 0 до " << GetLength(list) - 1 << ")\n";
 		index = СheckingСorrectness();
-		CheckingRange(index, GetLength(list));
+		index = CheckingRange(index, GetLength(list));
 
 		for (int i = 0; i < index; i++)
 		{
@@ -246,6 +247,7 @@ void Clear(List* list)
 
 void LauncherLab4()
 {
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	int ascii = 0;
 	char key;
@@ -254,19 +256,25 @@ void LauncherLab4()
 	while (ascii != 27)
 	{
 		system("cls");
+
+		SetConsoleTextAttribute(hStdOut, 13);
 		Show(list);
 
+		SetConsoleTextAttribute(hStdOut, 14);
 		cout << "Нажмите... \n";
+		SetConsoleTextAttribute(hStdOut, 10);
 		cout << "'0' - Добавить в конец;\n";
 		cout << "'1' - Вывести адрес указанного элемента;\n";
 		cout << "'2' - Удалить указанный элемент;\n";
 		cout << "'3' - Вставка элемента по указанному индексу;\n";
 		cout << "'4' - Очистить содержимое списка;\n";
+		SetConsoleTextAttribute(hStdOut, 12);
 		cout << "'Esc' - Вернуться к выбору лабораторной работы...\n\n";
 
 		key = _getch();
 		ascii = key;
 
+		SetConsoleTextAttribute(hStdOut, 15);
 		switch (ascii)
 		{
 		case '0':
