@@ -1,5 +1,20 @@
 #pragma once
 
+enum Sex
+{
+	Women,
+	Men
+};
+
+struct Person
+{
+	char Surname[40];
+	char Name[20];
+	int Age;
+	Sex Sex;
+};
+
+void CopyString(char* string1, const char* string2); //Функция переписывает данные из одной строки в другую
 int GetLength(char* string); //Функция для подсчета кол-ва символов в введенной строке
 char* Concatenate(char* string1, char* string2); //Функция, объединяющая две строки в одну
 char* GetSubstring(char* string, int startIndex, int charCount); //Вывод подстроки
