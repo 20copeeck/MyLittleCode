@@ -37,19 +37,16 @@
     <Filter Include="Файлы заголовков\lab4">
       <UniqueIdentifier>{3ad9bc37-7ae7-4fb1-a10c-7a1563f1c83c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\lab5">
+      <UniqueIdentifier>{bf7890bd-338c-4eb9-9e35-a78e1c2736cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\lab5">
+      <UniqueIdentifier>{e25ad135-4dcc-4f3f-bd21-87c6c4d8f7da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="lab1.h">
-      <Filter>Файлы заголовков\lab1</Filter>
-    </ClInclude>
-    <ClInclude Include="lab2.h">
-      <Filter>Файлы заголовков\lab2</Filter>
     </ClInclude>
     <ClInclude Include="lab3.h">
       <Filter>Файлы заголовков\lab3</Filter>
@@ -63,19 +60,34 @@
     <ClInclude Include="stack.h">
       <Filter>Файлы заголовков\lab4</Filter>
     </ClInclude>
+    <ClInclude Include="PersonList.h">
+      <Filter>Файлы заголовков\lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="Person.h">
+      <Filter>Файлы заголовков\lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="lab1.h">
+      <Filter>Файлы заголовков\lab1</Filter>
+    </ClInclude>
+    <ClInclude Include="lab2.h">
+      <Filter>Файлы заголовков\lab2</Filter>
+    </ClInclude>
+    <ClInclude Include="lab5.h">
+      <Filter>Файлы заголовков\lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonTools.h">
+      <Filter>Файлы заголовков\lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="CopyString.h">
+      <Filter>Файлы заголовков\lab5</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="lab1.cpp">
-      <Filter>Исходные файлы\lab1</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="lab2.cpp">
-      <Filter>Исходные файлы\lab2</Filter>
     </ClCompile>
     <ClCompile Include="lab3.cpp">
       <Filter>Исходные файлы\lab3</Filter>
@@ -88,6 +100,27 @@
     </ClCompile>
     <ClCompile Include="stack.cpp">
       <Filter>Исходные файлы\lab4</Filter>
+    </ClCompile>
+    <ClCompile Include="lab1.cpp">
+      <Filter>Исходные файлы\lab1</Filter>
+    </ClCompile>
+    <ClCompile Include="lab2.cpp">
+      <Filter>Исходные файлы\lab2</Filter>
+    </ClCompile>
+    <ClCompile Include="Person.cpp">
+      <Filter>Исходные файлы\lab5</Filter>
+    </ClCompile>
+    <ClCompile Include="PersonList.cpp">
+      <Filter>Исходные файлы\lab5</Filter>
+    </ClCompile>
+    <ClCompile Include="lab5.cpp">
+      <Filter>Исходные файлы\lab5</Filter>
+    </ClCompile>
+    <ClCompile Include="PersonTools.cpp">
+      <Filter>Исходные файлы\lab5</Filter>
+    </ClCompile>
+    <ClCompile Include="CopyString.cpp">
+      <Filter>Исходные файлы\lab5</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
