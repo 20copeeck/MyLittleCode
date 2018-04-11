@@ -82,7 +82,7 @@ char* Adult::GetDescription()
 		Concatenate(description, " одинок(а), ");
 	}
 
-	if (_workPlace != nullptr)
+	if (*_workPlace != '\0')
 	{
 		Concatenate(description, "должность: ");
 		Concatenate(description, _workPlace);
@@ -90,7 +90,7 @@ char* Adult::GetDescription()
 	}
 	else
 	{
-		Concatenate(description, " без работы.");
+		Concatenate(description, "без работы.");
 	}
 
 	return description;
@@ -106,7 +106,7 @@ Adult* Adult::MakeRandom()
 
 	char* tempName = new char[30];
 	char* tempSurname = new char[30];
-	char* tempWorkPlace;
+	char* tempWorkPlace = new char[30];
 
 	int tempAge = 18 + rand() % 72;
 	enum Sex tempSex = enum Sex(rand() % 2);
@@ -140,8 +140,11 @@ Adult* Adult::MakeRandom()
 
 	if (rand() % 10)
 	{
-		tempWorkPlace = new char[30];
 		CopyString(tempWorkPlace, workPlace[rand() % 15]);
+	}
+	else
+	{
+		*tempWorkPlace = '\0';
 	}
 
 	return new Adult(tempName, tempSurname, tempAge, tempSex, tempMarriedOn, tempWorkPlace);
