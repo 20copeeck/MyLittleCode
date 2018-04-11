@@ -1,6 +1,6 @@
 ﻿#include "stdafx.h"
 #include "PersonTools.h"
-#include "CopyString.h"
+#include "StringFunctions.h"
 
 using namespace std;
 
@@ -104,6 +104,31 @@ Person* PersonTools::MakeRandomPerson()
 	char* tempSurname = new char[30];
 	int tempAge = 1 + rand() % 95;
 	enum Sex tempSex = enum Sex(rand() % 2);
+
+	if (tempSex)
+	{
+		CopyString(tempName, nameMale[rand() % 15]);
+		CopyString(tempSurname, surnameMale[rand() % 15]);
+	}
+	else
+	{
+		CopyString(tempName, nameFemale[rand() % 15]);
+		CopyString(tempSurname, surnamesFemale[rand() % 15]);
+	}
+	return new Person(tempName, tempSurname, tempAge, tempSex);
+}
+
+Person* PersonTools::MakeRandomPerson(Sex gender)
+{
+	const char* nameMale[] = { "Игорь", "Олег", "Максим", "Павел", "Андрей", "Семен", "Дмитрий", "Сергей", "Федор", "Алексей", "Егор", "Владимир", "Иван", "Петр", "Владислав" };
+	const char* nameFemale[] = { "Жанна", "Анна", "Юлия", "Виктория", "Ольга", "Наталья", "Галина", "Анастасия", "Кристина", "Алина", "Карина", "Дарья", "Анджела", "Диана", "Маргарита" };
+	const char* surnameMale[] = { "Иванов", "Петров", "Павлецкий", "Максимов", "Жабин", "Богомолов", "Волков", "Попов", "Мишин", "Явлецкий", "Анреев", "Антропов", "Бегунов", "Винин", "Динисов" };
+	const char* surnamesFemale[] = { "Иванова", "Петрова", "Павлецкая", "Максимова", "Жабина", "Богомолова", "Волкова", "Попова", "Мишина", "Явлецкая", "Андреевская", "Антропова", "Бегунова", "Винина", "Динисова" };
+
+	char* tempName = new char[30];
+	char* tempSurname = new char[30];
+	int tempAge = 1 + rand() % 95;
+	enum Sex tempSex = gender;
 
 	if (tempSex)
 	{

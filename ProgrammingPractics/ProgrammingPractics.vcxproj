@@ -148,12 +148,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="addition.h" />
-    <ClInclude Include="CopyString.h" />
+    <ClInclude Include="Adult.h" />
+    <ClInclude Include="Child.h" />
+    <ClInclude Include="StringFunctions.h" />
     <ClInclude Include="lab1.h" />
     <ClInclude Include="lab2.h" />
     <ClInclude Include="lab3.h" />
     <ClInclude Include="lab4.h" />
     <ClInclude Include="lab5.h" />
+    <ClInclude Include="lab6.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="PersonList.h" />
     <ClInclude Include="PersonTools.h" />
@@ -162,12 +165,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="addition.cpp" />
-    <ClCompile Include="CopyString.cpp" />
+    <ClCompile Include="Adult.cpp" />
+    <ClCompile Include="Child.cpp" />
+    <ClCompile Include="StringFunctions.cpp" />
     <ClCompile Include="lab1.cpp" />
     <ClCompile Include="lab2.cpp" />
     <ClCompile Include="lab3.cpp" />
     <ClCompile Include="lab4.cpp" />
     <ClCompile Include="lab5.cpp" />
+    <ClCompile Include="lab6.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PersonList.cpp" />

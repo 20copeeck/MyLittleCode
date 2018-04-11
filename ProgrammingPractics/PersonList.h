@@ -1,5 +1,7 @@
 #pragma once
 #include "person.h"
+#include "Adult.h"
+#include "Child.h"
 
 class PersonList
 {
@@ -33,6 +35,12 @@ class PersonList
 		void Remove(Person* person); //удалить человека из списка
 		void RemoveAt(int index); //удалить человека из списка по индексу
 
+		void ShowDescription();
 		void Show();
 		void Clear(); //очистить список
+
+		~PersonList()
+		{
+			Clear();
+		};
 };

@@ -43,6 +43,12 @@
     <Filter Include="Файлы заголовков\lab5">
       <UniqueIdentifier>{e25ad135-4dcc-4f3f-bd21-87c6c4d8f7da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\lab6">
+      <UniqueIdentifier>{ca0b3d06-f5d0-402f-8c33-d3b4dad2711a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\lab6">
+      <UniqueIdentifier>{bb6afc1f-ce10-4eb6-9a76-d2d2a1dab5c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -78,7 +84,16 @@
     <ClInclude Include="PersonTools.h">
       <Filter>Файлы заголовков\lab5</Filter>
     </ClInclude>
-    <ClInclude Include="CopyString.h">
+    <ClInclude Include="Adult.h">
+      <Filter>Файлы заголовков\lab6</Filter>
+    </ClInclude>
+    <ClInclude Include="Child.h">
+      <Filter>Файлы заголовков\lab6</Filter>
+    </ClInclude>
+    <ClInclude Include="lab6.h">
+      <Filter>Файлы заголовков\lab6</Filter>
+    </ClInclude>
+    <ClInclude Include="StringFunctions.h">
       <Filter>Файлы заголовков\lab5</Filter>
     </ClInclude>
   </ItemGroup>
@@ -119,7 +134,16 @@
     <ClCompile Include="PersonTools.cpp">
       <Filter>Исходные файлы\lab5</Filter>
     </ClCompile>
-    <ClCompile Include="CopyString.cpp">
+    <ClCompile Include="Adult.cpp">
+      <Filter>Исходные файлы\lab6</Filter>
+    </ClCompile>
+    <ClCompile Include="Child.cpp">
+      <Filter>Исходные файлы\lab6</Filter>
+    </ClCompile>
+    <ClCompile Include="lab6.cpp">
+      <Filter>Исходные файлы\lab6</Filter>
+    </ClCompile>
+    <ClCompile Include="StringFunctions.cpp">
       <Filter>Исходные файлы\lab5</Filter>
     </ClCompile>
   </ItemGroup>
