@@ -13,12 +13,12 @@ public:
 	void SetMother(Person* mother);
 	void SetFather(Person* father);
 	void SetSchool(char* school);
-	void SetAge(int age);
+	void SetAge(unsigned int age) override;
 
 	Person* GetMother();
 	Person* GetFather();
 	char* GetSchool();
-	char* GetDescription();
+	char* GetDescription() override;
 
 	static Child* MakeRandom();
 };

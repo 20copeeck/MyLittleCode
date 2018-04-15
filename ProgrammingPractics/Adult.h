@@ -11,9 +11,9 @@ public:
 	
 	void SetMarriedOn(Person* marriedOn);
 	void SetWorkPlace(char* workPlace);
-	void SetAge(int age);
+	void SetAge(unsigned int age) override;
 	
-	char* GetDescription();
+	char* GetDescription() override; 
 	char* GetWorkPlace();
 	Person* GetMarriedOn();
 

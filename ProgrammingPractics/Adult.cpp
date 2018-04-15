@@ -13,7 +13,7 @@ Adult::Adult(char* name, char* surname, unsigned int age, Sex gender, Person* ma
 	SetWorkPlace(workPlace);
 }
 
-void Adult::SetAge(int age)
+void Adult::SetAge(unsigned int age)
 {
 	if (age >= 18)
 	{

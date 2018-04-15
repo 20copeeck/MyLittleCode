@@ -19,14 +19,14 @@ class Person
 
 		void SetName(char* name);
 		void SetSurname(char* surname);
-		void SetAge(unsigned int age);
+		virtual void SetAge(unsigned int age);
 		void SetSex(Sex gender);
 
 		char* GetName();
 		char* GetSurname();
 		int GetAge();
 		Sex GetSex();
-		char* GetDescription();
+		virtual char* GetDescription();
 		
 		~Person();
 };

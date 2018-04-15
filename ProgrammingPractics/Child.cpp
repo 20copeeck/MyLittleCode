@@ -14,7 +14,7 @@ Child::Child(char* name, char* surname, unsigned int age, Sex gender, Person* mo
 	SetSchool(school);
 }
 
-void Child::SetAge(int age)
+void Child::SetAge(unsigned int age)
 {
 	if (age < 18)
 	{
