@@ -1,5 +1,6 @@
 #pragma once
 #include "lab3.h"
+#include "StringFunctions.h"
 
 struct Node
 {

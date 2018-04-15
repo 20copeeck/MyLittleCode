@@ -14,13 +14,7 @@ struct Person
 	Sex Sex;
 };
 
-void CopyString(char* string1, const char* string2); //Функция переписывает данные из одной строки в другую
-int GetLength(char* string); //Функция для подсчета кол-ва символов в введенной строке
-char* Concatenate(char* string1, char* string2); //Функция, объединяющая две строки в одну
-char* GetSubstring(char* string, int startIndex, int charCount); //Вывод подстроки
 int FindSubstring(char* string, char* substring); //Поиск подстроки в строке
-char* Uppercase(char* string); //Перевести строку в верхний регистр
-char* Lowercase(char* string); //Перевести строку в нижний регистр
 void SplitFilename(char* source, char* path, char* name, char* extension); //Разбиение ресурса на путь, имя и расширение
 char* ReplaceTabsOnSpaces(char* string); //Замена символов табуляции на пробелы
 char* ReplaceSpacesOnTabs(char* string); //Замена пробелов на символы табуляции
