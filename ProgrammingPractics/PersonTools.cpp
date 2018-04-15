@@ -31,12 +31,6 @@ bool CheckChar(char* name)
 	return isTrueName;
 }
 
-ostream& operator << (ostream &ostream, Person* person)
-{
-	ostream << '{' << person->GetName() << ", " << person->GetSurname() << ", " << person->GetAge() << ", " << person->GetSex() << '}';
-	return ostream;
-}
-
 istream& operator >> (istream& is, Person* person)
 {
 	char* tempName = new char[20];

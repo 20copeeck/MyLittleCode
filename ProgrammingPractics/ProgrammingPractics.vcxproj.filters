@@ -49,6 +49,12 @@
     <Filter Include="Файлы заголовков\lab6">
       <UniqueIdentifier>{bb6afc1f-ce10-4eb6-9a76-d2d2a1dab5c0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\lab7">
+      <UniqueIdentifier>{eef480a5-84a4-4f83-833c-fee608ae57ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\lab7">
+      <UniqueIdentifier>{0ab2d9e7-73f3-4089-88c4-65da0f55c2ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -95,6 +101,12 @@
     </ClInclude>
     <ClInclude Include="StringFunctions.h">
       <Filter>Файлы заголовков\lab5</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Файлы заголовков\lab7</Filter>
+    </ClInclude>
+    <ClInclude Include="lab7.h">
+      <Filter>Файлы заголовков\lab7</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +157,9 @@
     </ClCompile>
     <ClCompile Include="StringFunctions.cpp">
       <Filter>Исходные файлы\lab5</Filter>
+    </ClCompile>
+    <ClCompile Include="lab7.cpp">
+      <Filter>Исходные файлы\lab7</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
